@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animeux</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body>
+    <!-- nav -->
+    <div id="nav" class="nav">
+      <img class="nav__logo" src="images/netflix-logo.png" alt="" />
+      <img class="nav__avatar" src="images/netflix-avatar.png" alt="" />
+    
+      <div class="nav__search">
+        <form class="search-form" action="/search" method="GET">
+          <input class="nav__search-input" name="query" type="text" placeholder="Search" />
+          <button class="nav__search-button" type="submit">
+            <img src="static\images\search-icon-png-9982.png" alt="Search" />
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- header -->
+    <header class="banner"> 
+        {% if random.title %} 
+        <div class="banner__contents">
+          <h1 class="banner__title">Fate Heavens feels</h1>
+          <div class="banner__buttons">
+            <a href="/">
+                <button class="banner__button">Play</button>
+            </a>           
+               <button class="banner__button">My List</button>
+            </a>
+          </div>
+          <h1 class="banner__description">
+              The story focuses on the Holy Grail War and explores the relationship between Shirou Emiya and Sakura Matou, two teenagers participating in this conflict. The story continues immediately from Fate/stay night: Heaven's Feel I. presage flower, following Shirou as he continues to participate in the Holy Grail War even after being eliminated as a master.            </h1>
+        </div>
+        <img class="center" src="https://64.media.tumblr.com/f79f7b4d6a2f622339d8f3be99e9f9b0/tumblr_pwx3craA3a1usc9y9o2_540.gif" alt="" />
+        <div class="banner--fadeBottom"></div>
+        {% else %}
+        <div class="banner__contents">
+            <h1 class="banner__title">Fate Heavens feels</h1>
+            <div class="banner__buttons">
+              <a href="/">
+                  <button class="banner__button">Play</button>
+              </a>           
+                 <button class="banner__button">My List</button>
+              </a>
+            </div>
+            <h1 class="banner__description">
+                The story focuses on the Holy Grail War and explores the relationship between Shirou Emiya and Sakura Matou, two teenagers participating in this conflict. The story continues immediately from Fate/stay night: Heaven's Feel I. presage flower, following Shirou as he continues to participate in the Holy Grail War even after being eliminated as a master.            </h1>
+          </div>
+          <img class="center" src="https://64.media.tumblr.com/f79f7b4d6a2f622339d8f3be99e9f9b0/tumblr_pwx3craA3a1usc9y9o2_540.gif" alt="" />
+          <div class="banner--fadeBottom"></div>
+        {% endif %} 
+      </header>
+
+    <!-- Trending Now -->
+    <div class="row">
+      <h2>Trending Now</h2>
+      <div class="row__posters">
+        {% for data in recent.results %}
+        <a href=/{{ data.id }}>
+        <img class="row__poster"src="{{ data.image}}" alt="" />
+        </a>
+        {% endfor%}
+      </div>
+    </div>
+
+    <!-- Top Rated -->
+    <div class="row">
+      <h2>Top Rated</h2>
+      <div class="row__posters">
+        {% for data in popular.results%}
+        <a href="/{{data.id}}">
+            <img class="row__poster" src="{{ data.image }}" alt="/{{ data.id }}" />
+        </a> 
+        {% endfor %}
+      </div>
+    </div>
+
+    <script>
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY >= 100) {
+          nav.classList.add('nav__black');
+        } else {
+          nav.classList.remove('nav__black');
+        }
+      });
+    </script>
+  </body>
+</html>

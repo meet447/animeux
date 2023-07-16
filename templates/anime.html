@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{info.title}}</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>animeux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="static/anime.css" />
+  <link rel="stylesheet" href="static/info.css" />
+</head>
+
+<body>
+  <nav class="main-nav">                
+    <a href="/">Home</a>
+    <a target="_blank" href="github.com/meet447">Portfolio</a>       
+  </nav>
+  <nav class="sub-nav">
+    <div class="nav__search">
+        <form class="search-form" action="/search" method="GET">
+          <input class="nav__search-input" name="query" type="text" placeholder="Search" />
+          <button class="nav__search-button" type="submit">
+            <img src="static\images\search-icon-png-9982.png" alt="Search" />
+          </button>
+        </form>
+      </div>    
+  </nav>  
+
+  <div class="banner">
+    <div class="banner--fadeBottom"></div>
+    <div class="banner__contents">
+      <h1 class="banner__title">{{info.title}}</h1>
+      <div class="banner__description">
+        {{info.description}}
+      </div>
+      <button class="episode__button"> {{ info.type}} <button>
+      {%for data in info.genres %}
+      <button class="episode__button"> {{ data }} <button>
+      {% endfor%}  
+    </div>
+  </div>
+
+  <div class="episodes">
+    {% for data in info.episodes %}
+    <div class="episode__card">
+      <img src="{{info.image}}" alt="Episode Thumbnail" class="episode__thumbnail">
+      <h2 class="episode__title">Episode {{data.id}}</h2>
+      <p class="episode__description">{{data.number}}</p>
+      <a href="/watch/{{data.id}}">
+        <button class="episode__button">Watch Now</button>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    // You can add any necessary JavaScript here
+  </script>
+</body>
+</html>

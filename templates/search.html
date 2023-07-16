@@ -1,0 +1,46 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>animeux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="static/anime.css" />
+  <link rel="stylesheet" href="static/style.css" />
+  <script src="main.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+      </div>      
+      <nav class="main-nav">                
+        <a href="/">Home</a>
+        <a target="_blank" href="hithub.com/meet447">Portfolio</a>        
+      </nav>
+      <nav class="sub-nav">
+        <div class="nav__search">
+            <form class="search-form" action="/search" method="GET">
+              <input class="nav__search-input" name="query" type="text" placeholder="Search" />
+              <button class="nav__search-button" type="submit">
+                <img src="static\images\search-icon-png-9982.png" alt="Search" />
+              </button>
+            </form>
+          </div>    
+      </nav>      
+    </header>
+    <!-- END OF HEADER -->
+    
+    <!-- MAIN CONTAINER -->
+    <section class="main-container" >
+      <div class="location" id="home">
+          <h1 id="home">Results</h1>
+          <div class="box">
+            {% for data in data.results %}
+            <a href="/{{ data.id}}"><img src="{{data.image}}" {{data.title}} alt=""></a>
+            {% endfor %}
+          </div>
+      </div>
+    

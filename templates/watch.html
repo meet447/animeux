@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Watch</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>animeux</title>
+  <link rel="stylesheet" href="/static/watch.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <div id="app-bar">
+    <a href="/">Home</a>
+  </div>
+
+  <div id="video-container">
+    <div id="video-wrapper">
+      <video id="video" controls autoplay></video>
+    </div>
+
+    <div id="controls-container">
+      <div id="quality-buttons">
+        {% for source in data.sources %}
+          <button onclick="playVideo('{{ source.url }}')">{{ source.quality }}</button>
+        {% endfor %}
+      </div>
+
+      <div id="episode-buttons">
+        <button onclick="updatePrevVideoUrl()">Previous Episode</button>
+        <button onclick="updateNextVideoUrl()">Next Episode</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/watch.js"></script>
+</body>
+</html>
