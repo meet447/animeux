@@ -32,8 +32,8 @@ body {
   }
   
   #video-wrapper {
-    position: relative;
-    width: 100%;
+    position: auto;
+    width: 93%;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     max-width: 1920px;
     margin: 0 auto;
