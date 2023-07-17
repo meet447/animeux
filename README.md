@@ -1,4 +1,4 @@
-﻿# Anime Streaming Website
+﻿# Animeux
 
 This is a web application for streaming anime shows built using Flask and Python.
 
@@ -13,6 +13,8 @@ This is a web application for streaming anime shows built using Flask and Python
 - ## Image
 - ![Screenshot 2023-07-16 170851](https://github.com/meet447/animeux/assets/51074036/a2fd9676-79e0-49fc-a90a-449dede85df3)
 
+vieo player:
+-![Screenshot 2023-07-17 153328](https://github.com/meet447/animeux/assets/51074036/bf156865-04f0-41a0-b403-fe1ed920f946)
 
 
 ## Prerequisites
