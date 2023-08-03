@@ -45,4 +45,4 @@ def watch(id, num):
     data = response.json()
     return render_template("watch.html", data=data)
 
-app.run(host='0.0.0.0')
+app.run(host="0.0.0.0")
